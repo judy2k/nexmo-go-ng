@@ -1,6 +1,9 @@
 package auth
 
-type Credentials interface{}
+import (
+	"crypto/rsa"
+	"github.com/judy2k/nexmo/pkg/auth"
+)
 
 type SecretCredentials struct {
 	APIKey string
@@ -9,10 +12,12 @@ type SecretCredentials struct {
 
 type SignatureCredentials struct {
 	APIKey          string
-	SignatureSecret string
+	SignatureSecret []byte
+	Method          auth.SignatureMethod
 }
 
 type ApplicationCredentials struct {
 	ApplicationID string
-	PrivateKey    string
+	PrivateKey    *rsa.PrivateKey
+	random        RandomProvider
 }

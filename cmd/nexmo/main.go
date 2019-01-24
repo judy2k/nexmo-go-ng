@@ -1,11 +1,15 @@
 package main
 
-import "github.com/judy2k/nexmo/pkg/client"
+import (
+	"fmt"
+	"github.com/judy2k/nexmo/pkg/client"
+)
 
 func main() {
 	c := client.NewClient()
-	c.SendSMS(client.SMSMessage{
-
-	})
+	fmt.Printf("Client: %v\n", c)
+	//c.SendSMS(client.SMSMessage{
+	//
+	//})
 }
 
